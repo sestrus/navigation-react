@@ -2,21 +2,8 @@ import React, { useState } from "react";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 import Translate from "./components/Translate";
-
-const items = [
-  {
-    title: "What is React?",
-    content: "React is a front end javascript framework",
-  },
-  {
-    title: "Why use React?",
-    content: "React is a favorite JS library among engineers",
-  },
-  {
-    title: "How do you use React?",
-    content: "You use React by creating components",
-  },
-];
+import Route from "./components/Route";
+import Header from "./components/Header";
 
 const options = [
   {
@@ -33,30 +20,31 @@ const options = [
   },
 ];
 
-const showList = () => {
-  if (window.location.pathname === "/") {
-    return <Search />;
-  }
-};
-
-const showDropdown = () => {
-  if (window.location.pathname === "/dropdown") {
-    return <Dropdown />;
-  }
-};
-
-const showTranslate = () => {
-  if (window.location.pathname === "/translate") {
-    return <Translate />;
-  }
-};
-
 const App = () => {
+  const [selected, setSelected] = useState(options[0]);
+  const label = "Pick the color";
+
   return (
+    // <div>
+    //   {showList()}
+    //   {showDropdown()}
+    //   {showTranslate()}
+    // </div>
     <div>
-      {showList()}
-      {showDropdown()}
-      {showTranslate()}
+      <Header />
+      <Route path="/">
+        <Dropdown
+          selected={selected}
+          onSelectedChange={setSelected}
+          options={options}
+        />
+      </Route>
+      <Route path="/search">
+        <Search />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };

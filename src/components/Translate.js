@@ -1,29 +1,45 @@
-import React, { useState } from 'react';
-import Dropdown from './Dropdown';
-import Convert from './Convert';
+import React, { useState } from "react";
+import Dropdown from "./Dropdown";
+import Convert from "./Convert";
 
 const options = [
   {
-    label: 'Afrikaans',
-    value: 'af',
+    label: "Arabic",
+    value: "ar",
   },
   {
-    label: 'Arabic',
-    value: 'ar',
+    label: "Czech",
+    value: "cs",
   },
   {
-    label: 'Hindi',
-    value: 'hi',
+    label: "French",
+    value: "fr",
   },
   {
-    label: 'Dutch',
-    value: 'nl',
+    label: "German",
+    value: "de",
+  },
+  {
+    label: "Italian",
+    value: "it",
+  },
+  {
+    label: "Polish",
+    value: "pl",
+  },
+  {
+    label: "Spanish",
+    value: "es",
+  },
+  {
+    label: "Swedish",
+    value: "sv",
   },
 ];
 
 const Translate = () => {
   const [language, setLanguage] = useState(options[0]);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   return (
     <div>
